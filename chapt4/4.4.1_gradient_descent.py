@@ -50,7 +50,7 @@ def tangent_line(f, x):
     return lambda t: d * t + y
 
 
-def gradient_descent(f, init_x, lr, step_num):
+def gradient_descent(f, init_x, lr=0.01, step_num=100):
     x = init_x
 
     for i in range(step_num):
@@ -62,7 +62,7 @@ def gradient_descent(f, init_x, lr, step_num):
 
 if __name__ == '__main__':
     init_x = np.array([-3.0, 4.0])
-    result = gradient_descent(function_2, init_x, 0.1, 100)
+    result = gradient_descent(function_2, init_x, lr=1e-10, step_num=100)
     print(result)
 
     # x0 = np.arange(-2, 2.5, 0.25)
