@@ -1,9 +1,12 @@
+# coding: utf-8
 import sys, os
 sys.path.append(os.pardir)
 from master.common.functions import *
 from master.common.gradient import numerical_gradient
 
+
 class TwoLayerNet:
+
     def __init__(self, input_size, hidden_size, output_size, weight_init_std=0.01):
         # initialization of weights
         self.params = {}
@@ -11,7 +14,6 @@ class TwoLayerNet:
         self.params['b1'] = np.zeros(hidden_size)
         self.params['W2'] = weight_init_std * np.random.randn(hidden_size, output_size)
         self.params['b2'] = np.zeros(output_size)
-
 
     def predict(self, x):
         W1, W2 = self.params['W1'], self.params['W2']
@@ -24,12 +26,11 @@ class TwoLayerNet:
 
         return y
 
-
     # x:inputdata, t:trainingdata
     def loss(self, x, t):
         y = self.predict(x)
-        return cross_entropy_error(y, t)
 
+        return cross_entropy_error(y, t)
 
     def accuracy(self, x, t):
         y = self.predict(x)
@@ -38,7 +39,6 @@ class TwoLayerNet:
 
         accuracy = np.sum(y == t) / float(x.shape[0])
         return accuracy
-
 
     # x:inputdata, t:trainingdata
     def numerical_gradient(self, x, t):
