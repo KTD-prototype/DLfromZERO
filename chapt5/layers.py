@@ -1,5 +1,6 @@
 # coding: utf-8
-import os
+import sys, os
+import numpy as np
 sys.path.append(os.pardir)
 from master.common.gradient import numerical_gradient
 from master.common.functions import softmax, cross_entropy_error
